@@ -68,14 +68,14 @@ LOGGING = {
         'efk': {
             'handlers': ['json-stdout',],
             'propagate': True,
-            'level':'DEBUG',
+            'level':'INFO',
             'filters': ['default'],
             'formatters': ['json'],
         },
         'demo': {
             'handlers': ['json-stdout',],
             'propagate': True,
-            'level':'DEBUG',
+            'level':'INFO',
             'filters': ['default'],
             'formatters': ['json'],
         },
@@ -96,7 +96,7 @@ LOGGING = {
             'handlers': ['json-stdout'],
             'formatters': ['json-access'],
             'propagate': False,
-            'level':'DEBUG',
+            'level':'INFO',
         },
         'gunicorn.error': {
             'handlers': ['json-stdout'],
@@ -109,7 +109,7 @@ LOGGING = {
             'formatters': ['json'],
             'propagate': True,
             'filters': ['default'],
-            'level':'DEBUG',
+            'level':'INFO',
         },
     }
 }
