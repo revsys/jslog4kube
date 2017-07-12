@@ -1,6 +1,31 @@
 # pylint: disable=missing-docstring
+'''
 
-from ..bootstrap import format_str
+This is the default logging config dictionary.
+
+Of note:
+
+  * the format string (`format_str`) is a a space-delimited series of
+    python logging attributes that include the attributes derived from
+    the kubernetes environment and/or meta-data files.
+
+    TODO:
+        KubeMetaInject: support exclusion and inclusion arguments
+        Since `format_str` is derived from a list of built-in and
+        kube-derived keys, manipulating this list before it is applied
+        to the log record is a good place for this sort of thing.
+
+        In addition, having `format_str` always reflect the list
+        of desired attributes will avoid having to deal with manual
+        maintenance of said format string.
+
+    (https://docs.python.org/3.5/library/logging.html#logrecord-attributes)
+
+  * If `gunicorn` is not in play, the `gunicorn.` loggers and the `json-access`
+    formatter can be left off
+'''
+
+from .. import format_str
 
 LOGGING = {
     'version': 1,
@@ -20,7 +45,7 @@ LOGGING = {
     },
     'filters': {
         'default': {
-            '()': 'demo.kube_log_filter.KubeMetaInject',
+            '()': 'jslog4kube.KubeMetaInject',
         },
     },
     'handlers': {
@@ -88,4 +113,3 @@ LOGGING = {
         },
     }
 }
-

@@ -1,19 +1,30 @@
 # pylint: disable=invalid-name, missing-docstring, too-few-public-methods
+'''
+
+    The environment variables that drive this are `KUBE_META` and
+    `KUBE_META_ENV_PREFIX`
+
+    `KUBE_META` is the directory that Kubernetes metadata mountpoints
+    can be found.  The default is `/etc/meta`
+
+    `KUBE_META_ENV_PREFIX` specifies the shell variable prefix
+    (defaults to `X`) that indicate a variable that should be injected
+    into the log record.
+
+    e.g.:
+        X_POD_IP=100.96.1.11
+        X_NODE_NAME=ip-10-70...
+
+
+'''
 
 import os
-from importlib import import_module
-
-settings_module = os.environ.get('DJANGO_SETTINGS_MODULE', 'demo.settings')
-
-settings = import_module(settings_module)
 
 LOG_ADDS = {}
 
-META_PATH = settings.K8S_META or'/etc/meta/'
-META_ENV_PREFIX = settings.K8S_META_PREFIX or 'X'
+META_PATH = os.environ.get('KUBE_META', None) or '/etc/meta/'
 
-if not META_ENV_PREFIX:
-    META_ENV_PREFIX = 'X'
+META_ENV_PREFIX = os.environ.get('KUBE_META_ENV_PREFIX', None) or 'X'
 
 META_ENV_VAR = {
     k.lower(): v.replace('"', '')
