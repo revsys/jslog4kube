@@ -231,7 +231,7 @@ LOGGING_HANDLERS = {
         ‘handlers’: [‘json-stdout’],
         ‘formatters’: [‘json’],
         ‘propagate’: False,
-        ‘level’: ERROR,
+        ‘level’: ‘ERROR’,
     }
 }
 
