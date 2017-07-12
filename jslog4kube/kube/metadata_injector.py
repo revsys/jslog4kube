@@ -40,7 +40,7 @@
 
 '''
 import logging
-from ..constants import LOG_ADDS
+from .. import LOG_ADDS
 
 
 class KubeMetaInject(logging.Filter):

@@ -82,6 +82,28 @@ This will produce the following kind of output:
   "x_pod_ip": "100.96.1.11"
 }
 {
+  "asctime": "2017-07-12 19:15:32,269",
+  "message": "in view: Chameleon",
+  "name": "efk.views",
+  "created": 1499886932.2699347,
+  "filename": "views.py",
+  "module": "views",
+  "funcName": "Chameleon",
+  "lineno": 12,
+  "msecs": 269.93465423583984,
+  "pathname": "/home/gladiatr/git/wharton-kube/demo/efk/views.py",
+  "process": 78082,
+  "processName": "MainProcess",
+  "relativeCreated": 9879.846811294556,
+  "thread": 140202769601600,
+  "threadName": "MainThread",
+  "levelname": "INFO",
+  "x_node_name": "ip-10-70-59-190.eu-central-1.compute.internal",
+  "x_sa_name": "default",
+  "x_pod_ip": "100.96.1.11",
+  "additional data": "whee"
+}
+{
   "asctime": "2017-07-12 18:33:39,068",
   "message": "(access record)",
   "name": "gunicorn.access",
