@@ -206,8 +206,9 @@ spec:
 
 ```
 
-### Currently only `metadata.(labels|annotations)` are supported for exposure via
-volume. (_Reasons_, right?)
+### Currently only `metadata.(labels|annotations)` are supported for exposure via volume. 
+(_Reasons_, right?)
+
 
 ```yaml
     spec:
