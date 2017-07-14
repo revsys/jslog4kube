@@ -36,11 +36,11 @@ LOGGING = {
         },
         'json': {
             'format': format_str,
-            'class': 'pythonjsonlogger.jsonlogger.JsonFormatter',
+            '()': 'pythonjsonlogger.jsonlogger.JsonFormatter',
         },
         'json-access': {
             'format': format_str + '%(access)',
-            'class': 'pythonjsonlogger.jsonlogger.JsonFormatter',
+            '()': 'pythonjsonlogger.jsonlogger.JsonFormatter',
         },
     },
     'filters': {
