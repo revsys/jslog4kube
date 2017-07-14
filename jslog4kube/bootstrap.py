@@ -45,7 +45,7 @@ try:
             if not k.startswith('kubernetes.io')
         }
     LOG_ADDS.update(ANNO)
-except FileNotFoundError:
+except IOError:
     pass
 
 try:
@@ -58,7 +58,7 @@ try:
             ]
         }
     LOG_ADDS.update(LABELS)
-except FileNotFoundError:
+except IOError:
     pass
 
 default_fields = (
