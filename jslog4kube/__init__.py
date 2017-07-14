@@ -3,6 +3,7 @@
 from .bootstrap import LOG_ADDS, format_str
 from .kube.log_config import LOGGING
 from .kube.metadata_injector import KubeMetaInject
+from pythonjsonlogger.jsonlogger import JsonFormatter
 
 try:
     from .gunicorn.dictconfig_logger import GunicornLogger
