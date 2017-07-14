@@ -21,7 +21,11 @@ Two environment variables configure this module:
 
 ----
 
-These bits have been verified to be functional under python 2.7.13, 3.5.3 and 3.6.1
+
+
+---------------------------------------------------------------------------------------
+| These bits have been verified to be functional under python 2.7.13, 3.5.3 and 3.6.1 |
+---------------------------------------------------------------------------------------
 
 ----
 
