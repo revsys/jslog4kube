@@ -19,6 +19,13 @@ Two environment variables configure this module:
   [environment variables](https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/)
   targetted for inclusion in this pod’s log records (default: X) 
 
+----
+
+These bits have been verified to be functional under python 2.7.13, 3.5.3 and 3.6.1
+
+----
+
+
 
 ```python
 
@@ -70,7 +77,7 @@ This will produce the following kind of output:
   "funcName": "info",
   "lineno": 247,
   "msecs": 624.3171691894531,
-  "pathname": "/home/gladiatr/.virtualenvs/wharton-kube/lib/python3.6/site-packages/gunicorn/glogging.py",
+  "pathname": "/home/gladiatr/.virtualenvs/json-logs-for-kube/lib/python3.6/site-packages/gunicorn/glogging.py",
   "process": 6801,
   "processName": "MainProcess",
   "relativeCreated": 70.62673568725586,
@@ -99,7 +106,7 @@ This will produce the following kind of output:
   "funcName": "Chameleon",
   "lineno": 12,
   "msecs": 354.42161560058594,
-  "pathname": "/home/gladiatr/git/wharton-kube/demo/efk/views.py",
+  "pathname": "/home/gladiatr/git/json-logs-for-kube/demo/efk/views.py",
   "process": 6800,
   "processName": "MainProcess",
   "relativeCreated": 41800.73118209839,
@@ -129,7 +136,7 @@ This will produce the following kind of output:
   "funcName": "access",
   "lineno": 327,
   "msecs": 369.58813667297363,
-  "pathname": "/home/gladiatr/.virtualenvs/wharton-kube/lib/python3.6/site-packages/gunicorn/glogging.py",
+  "pathname": "/home/gladiatr/.virtualenvs/json-logs-for-kube/lib/python3.6/site-packages/gunicorn/glogging.py",
   "process": 6800,
   "processName": "MainProcess",
   "relativeCreated": 41815.89770317078,
