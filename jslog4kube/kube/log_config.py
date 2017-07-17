@@ -27,6 +27,8 @@ Of note:
 
 from .. import format_str
 
+DATEFORMAT = '%Y-%m-%dT%H:%M:%S,%03d'
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -36,9 +38,11 @@ LOGGING = {
         },
         'json': {
             'format': format_str,
+            'datefmt': DATEFORMAT,
             '()': 'pythonjsonlogger.jsonlogger.JsonFormatter',
         },
         'json-access': {
+            'datefmt': DATEFORMAT,
             'format': format_str + '%(access)',
             '()': 'pythonjsonlogger.jsonlogger.JsonFormatter',
         },
