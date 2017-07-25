@@ -9,15 +9,18 @@
   * because creating complex log collector configs to handle whatever
     that other person thought was a good-idea-at-the-time is for the birds.
 
+We want to make it easier for our clients and ourselves to start new projects
+that emit good logging.
+
 ### making it go
 
 Two environment variables configure this module:
 
-  * `KUBE_META`: specifies the mount-point for the Kubernetes downward-API 
+  * `KUBE_META`: specifies the mount-point for the Kubernetes downward-API
   [volumes](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/) bits (default: /etc/meta)
-  * `KUBE_META_ENV_PREFIX`: the textual prefix for any 
+  * `KUBE_META_ENV_PREFIX`: the textual prefix for any
   [environment variables](https://kubernetes.io/docs/tasks/inject-data-application/environment-variable-expose-pod-information/)
-  targetted for inclusion in this pod’s log records (default: X) 
+  targetted for inclusion in this pod’s log records (default: X)
 
 ----
 
@@ -206,7 +209,7 @@ spec:
 
 ```
 
-### Currently only `metadata.(labels|annotations)` are supported for exposure via volume. 
+### Currently only `metadata.(labels|annotations)` are supported for exposure via volume.
 (_Reasons_, right?)
 
 
@@ -297,6 +300,10 @@ LOGGING[‘handlers’].update(LOGGING_HANDLERS)
 
 ```
 
+## Need help?
+
+[REVSYS](http://www.revsys.com) can help with your Python, Django, and infrastructure
+projects.
 
 
 
