@@ -1,4 +1,10 @@
 # pylint: disable=invalid-name, missing-docstring, too-few-public-methods
+'''
+Make it easy to emit JSON structured logging to stdout for Python apps and
+WSGI apps running inside Gunicorn.
+'''
+
+__version__ = '1.0.1'
 
 import logging
 import time
