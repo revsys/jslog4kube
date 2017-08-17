@@ -47,7 +47,7 @@ class KubeMetaInject(logging.Filter):
 
     def filter(self, record):
         for k, v in LOG_ADDS.items():
-            setattr(record, k, v)
+            setattr(record, k, str(v))
 
         if record.name == 'gunicorn.access':
             msg = record.msg
