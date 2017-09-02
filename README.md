@@ -27,7 +27,7 @@ Two environment variables configure this module:
 
 
 ---------------------------------------------------------------------------------------
- These bits have been verified to be functional under python 2.7.13, 3.5.3 and 3.6.1 
+ These bits have been verified to be functional under python 2.7.13, 3.5.3 and 3.6.1
 ---------------------------------------------------------------------------------------
 
 ----
@@ -297,6 +297,65 @@ LOGGING_HANDLERS = {
 }
 
 LOGGING['handlers'].update(LOGGING_HANDLERS)
+
+```
+
+## Setup your python/django apps to log correctly
+
+The `LOGGING` dict this provides sets up the "general" things to log, but if
+you want to include your own Python libraries or Django apps you need to specify
+them.  To specify a Django app named 'foo', you would simply adjust the `LOGGING` dict like this:
+
+```
+LOGGERS = {
+    'foo': {
+        'handlers': ['json-stdout'],
+        'formatters': ['json'],
+        'propagate': True,
+        'level': 'INFO',
+    }
+}
+
+LOGGING['loggers'].update(LOGGERS)
+
+dictConfig(LOGGING)
+```
+
+Or if you want to log EVERYTHING at an `DEBUG` level you can set a blank (aka default) logger:
+
+```
+LOGGERS = {
+    '': {
+        'handlers': ['json-stdout'],
+        'formatters': ['json'],
+        'propagate': True,
+        'level': 'DEBUG',
+    }
+}
+
+LOGGING['loggers'].update(LOGGERS)
+
+dictConfig(LOGGING)
+```
+
+## Usage
+
+This is normal Python logging so you can do something simple like our info call
+below or more complex like the debug call and add additional data to the log information:
+
+```
+import logging
+
+logger = logging.getLogger(__name__)
+
+logger.info("Simple log message")
+
+foo = 12
+bar = 'something else'
+logger.debug("More complicated message", extra={
+  "foo": foo,
+  "bar": bar,
+})
 
 ```
 
