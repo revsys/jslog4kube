@@ -288,15 +288,15 @@ is the handler definitions.
 from jslog4kube import LOGGING
 
 LOGGING_HANDLERS = {
-    ‘mypackage’: {
-        ‘handlers’: [‘json-stdout’],
-        ‘formatters’: [‘json’],
-        ‘propagate’: False,
-        ‘level’: ‘ERROR’,
+    'mypackage': {
+        'handlers': ['json-stdout'],
+        'formatters': ['json'],
+        'propagate’: False,
+        'level’: 'ERROR',
     }
 }
 
-LOGGING[‘handlers’].update(LOGGING_HANDLERS)
+LOGGING['handlers'].update(LOGGING_HANDLERS)
 
 ```
 
