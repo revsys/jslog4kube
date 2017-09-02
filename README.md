@@ -27,7 +27,7 @@ Two environment variables configure this module:
 
 
 ---------------------------------------------------------------------------------------
-| These bits have been verified to be functional under python 2.7.13, 3.5.3 and 3.6.1 |
+ These bits have been verified to be functional under python 2.7.13, 3.5.3 and 3.6.1 
 ---------------------------------------------------------------------------------------
 
 ----
@@ -280,7 +280,7 @@ with the value of `KUBE_META_ENV_PREFIX`.
 ## The logging configuration
 
 It’s just a standard python dictionary. The most obvious thing to change
-is the handler definitions.
+is the handler definition.
 
 
 ```python
