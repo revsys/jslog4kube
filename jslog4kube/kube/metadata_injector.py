@@ -51,14 +51,16 @@ class KubeMetaInject(logging.Filter):
 
         if record.name == 'gunicorn.access':
             msg = record.msg
-            msg_elements = {
-                k: v
-                for k, v in [el.split('!')
-                             for el in msg.split('|')]
-            }
-            record.access = msg_elements
-            record.msg = "(access record)"
+            try:
+                msg_elements = {
+                    k: v
+                    for k, v in [el.split('!')
+                                 for el in msg.split('|')]
+                }
+                record.access = msg_elements
+                record.msg = "(access record)"
+        except ValueError:
+            pass
 
         return True
-
 
