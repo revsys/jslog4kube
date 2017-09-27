@@ -59,8 +59,8 @@ class KubeMetaInject(logging.Filter):
                 }
                 record.access = msg_elements
                 record.msg = "(access record)"
-        except ValueError:
-            pass
+            except ValueError:
+                pass
 
         return True
 
