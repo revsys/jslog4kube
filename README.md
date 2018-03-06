@@ -361,7 +361,7 @@ logger.debug("More complicated message", extra={
 
 ## Need help?
 
-[REVSYS](http://www.revsys.com) can help with your Python, Django, and infrastructure projects. If you have a question about this project, please open a GitHub issue. If you love us and want to keep track of our goings-on, here's where you can find us online:
+[REVSYS](http://www.revsys.com?utm_medium=github&utm_source=jslog4kube) can help with your Python, Django, and infrastructure projects. If you have a question about this project, please open a GitHub issue. If you love us and want to keep track of our goings-on, here's where you can find us online:
 
 <a href="https://revsys.com?utm_medium=github&utm_source=jslog4kube"><img src="https://pbs.twimg.com/profile_images/915928618840285185/sUdRGIn1_400x400.jpg" height="50" /></a>
 <a href="https://twitter.com/revsys"><img src="https://cdn1.iconfinder.com/data/icons/new_twitter_icon/256/bird_twitter_new_simple.png" height="43" /></a>
