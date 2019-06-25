@@ -45,7 +45,7 @@ LOGGING = {
             "()": "pythonjsonlogger.jsonlogger.JsonFormatter",
         },
     },
-    "filters": {"default": {"()": "jslog4kube.KubeMetaInject"}},
+    "filters": {"default": {"()": "jslog4kube.kube.metadata_injector.KubeMetaInject"}},
     "handlers": {
         "json-stdout": {
             "level": "DEBUG",
