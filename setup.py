@@ -9,7 +9,7 @@ with open(os.path.join(BASE_DIR, "README.md")) as f:
 
 setup(
     name="jslog4kube",
-    version="1.0.4",
+    version="version='1.0.5'",
     description="relatively hassle-free JSON logging for Kubernetes pods",
     long_description=long_description,
     long_description_content_type="text/markdown",
