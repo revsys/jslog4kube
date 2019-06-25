@@ -50,7 +50,7 @@ class KubeMetaInject(logging.Filter):
             setattr(record, k, v)
 
         if record.name == 'gunicorn.access':
-            msg = record.msg
+            msg = record.getMessage()
             try:
                 msg_elements = {
                     k: v

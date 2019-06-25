@@ -2,7 +2,7 @@
 from setuptools import setup
 
 setup(name='jslog4kube',
-      version='1.0.1',
+      version='1.0.4',
       description='relatively hassle-free JSON logging for Kubernetes pods',
       url='http://gitlab.com/stephen6/jslog4kube',
       author='Stephen D. Spencer',
