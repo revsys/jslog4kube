@@ -1,5 +1,5 @@
 # pylint: disable=missing-docstring
-'''
+"""
 
 This is the default logging config dictionary.
 
@@ -23,97 +23,91 @@ Of note:
 
   * If `gunicorn` is not in play, the `gunicorn.` loggers and the `json-access`
     formatter can be left off
-'''
+"""
 
 from .. import format_str
 
-DATEFORMAT = '%Y-%m-%dT%H:%M:%S,%03d'
+DATEFORMAT = "%Y-%m-%dT%H:%M:%S,%03d"
 
 LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'default': {
-            'format': '%(message)s'
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "default": {"format": "%(message)s"},
+        "json": {
+            "format": format_str,
+            "datefmt": DATEFORMAT,
+            "()": "pythonjsonlogger.jsonlogger.JsonFormatter",
         },
-        'json': {
-            'format': format_str,
-            'datefmt': DATEFORMAT,
-            '()': 'pythonjsonlogger.jsonlogger.JsonFormatter',
-        },
-        'json-access': {
-            'datefmt': DATEFORMAT,
-            'format': format_str + '%(access)',
-            '()': 'pythonjsonlogger.jsonlogger.JsonFormatter',
+        "json-access": {
+            "datefmt": DATEFORMAT,
+            "format": format_str + "%(access)",
+            "()": "pythonjsonlogger.jsonlogger.JsonFormatter",
         },
     },
-    'filters': {
-        'default': {
-            '()': 'jslog4kube.KubeMetaInject',
+    "filters": {"default": {"()": "jslog4kube.KubeMetaInject"}},
+    "handlers": {
+        "json-stdout": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "stream": "ext://sys.stdout",
+            "formatter": "json",
+            "filters": ["default"],
+        },
+        "default": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "stream": "ext://sys.stdout",
+            "formatter": "default",
+            "filters": ["default"],
         },
     },
-    'handlers': {
-        'json-stdout': {
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
-            'stream': 'ext://sys.stdout',
-            'formatter': 'json',
-            'filters': ['default'],
+    "loggers": {
+        "efk": {
+            "handlers": ["json-stdout"],
+            "propagate": True,
+            "level": "INFO",
+            "filters": ["default"],
+            "formatters": ["json"],
         },
-        'default': {
-            'level':'DEBUG',
-            'class':'logging.StreamHandler',
-            'stream': 'ext://sys.stdout',
-            'formatter': 'default',
-            'filters': ['default'],
+        "demo": {
+            "handlers": ["json-stdout"],
+            "propagate": True,
+            "level": "INFO",
+            "filters": ["default"],
+            "formatters": ["json"],
+        },
+        "django": {
+            "handlers": ["json-stdout"],
+            "propagate": True,
+            "level": "INFO",
+            "filters": ["default"],
+            "formatters": ["json"],
+        },
+        "gunicorn": {
+            "handlers": ["json-stdout"],
+            "formatters": ["json"],
+            "propagate": False,
+            "level": "ERROR",
+        },
+        "gunicorn.access": {
+            "handlers": ["json-stdout"],
+            "formatters": ["json-access"],
+            "propagate": False,
+            "level": "INFO",
+        },
+        "gunicorn.error": {
+            "handlers": ["json-stdout"],
+            "formatters": ["json"],
+            "propagate": False,
+            "level": "INFO",
+        },
+        "requests": {
+            "handlers": ["json-stdout"],
+            "formatters": ["json"],
+            "propagate": True,
+            "filters": ["default"],
+            "level": "INFO",
         },
     },
-    'loggers': {
-        'efk': {
-            'handlers': ['json-stdout',],
-            'propagate': True,
-            'level':'INFO',
-            'filters': ['default'],
-            'formatters': ['json'],
-        },
-        'demo': {
-            'handlers': ['json-stdout',],
-            'propagate': True,
-            'level':'INFO',
-            'filters': ['default'],
-            'formatters': ['json'],
-        },
-        'django': {
-            'handlers': ['json-stdout',],
-            'propagate': True,
-            'level': 'INFO',
-            'filters': ['default'],
-            'formatters': ['json'],
-        },
-        'gunicorn': {
-            'handlers': ['json-stdout'],
-            'formatters': ['json'],
-            'propagate': False,
-            'level':'ERROR',
-        },
-        'gunicorn.access': {
-            'handlers': ['json-stdout'],
-            'formatters': ['json-access'],
-            'propagate': False,
-            'level':'INFO',
-        },
-        'gunicorn.error': {
-            'handlers': ['json-stdout'],
-            'formatters': ['json'],
-            'propagate': False,
-            'level':'INFO',
-        },
-        'requests': {
-            'handlers': ['json-stdout',],
-            'formatters': ['json'],
-            'propagate': True,
-            'filters': ['default'],
-            'level':'INFO',
-        },
-    }
 }

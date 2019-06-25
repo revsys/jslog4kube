@@ -1,5 +1,5 @@
 # pylint: disable=invalid-name, missing-docstring, too-few-public-methods
-'''
+"""
 
     This is a straight-forward record augmenting log filter.
 
@@ -38,24 +38,21 @@
 '|' delimits the attribute
 'remote!%(h)s|method!%(m)s|url-path!%(U)s|query!%(q)s|username!%(u)s|...`
 
-'''
+"""
 import logging
 from .. import LOG_ADDS
 
 
 class KubeMetaInject(logging.Filter):
-
     def filter(self, record):
         for k, v in LOG_ADDS.items():
             setattr(record, k, v)
 
-        if record.name == 'gunicorn.access':
+        if record.name == "gunicorn.access":
             msg = record.getMessage()
             try:
                 msg_elements = {
-                    k: v
-                    for k, v in [el.split('!')
-                                 for el in msg.split('|')]
+                    k: v for k, v in [el.split("!") for el in msg.split("|")]
                 }
                 record.access = msg_elements
                 record.msg = "(access record)"
