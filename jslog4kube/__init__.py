@@ -1,7 +1,7 @@
 # pylint: disable=invalid-name, missing-docstring, too-few-public-methods
 
 import time
-from pythonjsonlogger.jsonlogger import JsonFormatter
+from pythonjsonlogger.json import JsonFormatter
 from .bootstrap import LOG_ADDS, format_str
 from .kube.log_config import LOGGING
 
