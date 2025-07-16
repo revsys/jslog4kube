@@ -8,5 +8,5 @@ build:
   uv build
 
 release:
-  uv release
+  uv publish --token
 
