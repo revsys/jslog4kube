@@ -27,6 +27,12 @@ classifiers = [
     "Programming Language :: Python :: 3.13",
 ]
 
+[project.optional-dependencies]
+dev = [
+    "bumpversion",
+    "twine",
+]
+
 [project.urls]
 Homepage = "https://github.com/revsys/jslog4kube"
 
