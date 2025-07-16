@@ -18,9 +18,14 @@ You can install jslog4kube from PyPI with:
 
 ```shell
 $ pip install jslog4kube 
+```
+```
+
 
 or better yet, with uv 
 
+```shell
+```
 $ uv pip install jslog4kube
 ```
 
