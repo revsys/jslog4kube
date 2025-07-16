@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=45", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jslog4kube"
+version = "1.0.7"
+description = "relatively hassle-free JSON logging for Kubernetes pods"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+    {name = "Frank Wiles", email = "frank@revsys.com"},
+    {name = "Stephen D. Spencer", email = "stephen@revsys.com"},
+]
+dependencies = [
+    "python-json-logger",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+[project.urls]
+Homepage = "https://github.com/revsys/jslog4kube"
+
+[tool.setuptools.packages.find]
+include = ["jslog4kube*"]
+
+[tool.setuptools.package-data]
+jslog4kube = ["*"]
+
+[tool.bumpversion]
+current_version = "1.0.7"
+commit = true
+tag = true
+
+[[tool.bumpversion.files]]
+filename = "pyproject.toml"
+search = 'version = "{current_version}"'
+replace = 'version = "{new_version}"'
+
+[tool.bdist_wheel]
