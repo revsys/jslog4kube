@@ -12,6 +12,18 @@
 We want to make it easier for our clients and ourselves to start new projects
 that emit good logging.
 
+## Install
+
+You can install jslog4kube from PyPI with: 
+
+```shell
+$ pip install jslog4kube 
+
+or better yet, with uv 
+
+$ uv pip install jslog4kube
+```
+
 ### making it go
 
 Two environment variables configure this module:
