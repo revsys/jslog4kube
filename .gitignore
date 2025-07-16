@@ -6,3 +6,5 @@ dist/
 .env
 .tags
 flit.ini
+.envrc
+.local_env
