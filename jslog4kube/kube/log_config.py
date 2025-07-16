@@ -37,12 +37,12 @@ LOGGING = {
         "json": {
             "format": format_str,
             "datefmt": DATEFORMAT,
-            "()": "pythonjsonlogger.jsonlogger.JsonFormatter",
+            "()": "pythonjsonlogger.json.JsonFormatter",
         },
         "json-access": {
             "datefmt": DATEFORMAT,
             "format": format_str + "%(access)",
-            "()": "pythonjsonlogger.jsonlogger.JsonFormatter",
+            "()": "pythonjsonlogger.json.JsonFormatter",
         },
     },
     "filters": {"default": {"()": "jslog4kube.kube.metadata_injector.KubeMetaInject"}},
